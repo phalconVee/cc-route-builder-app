@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Komoot Cross-country Route Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A basic React application that allows you to plan your own cross-country run and download it as GPX file.
 
-## Available Scripts
+You can plan your favorite route across fields and hills by just placing markers as waypoints on the map. The same waypoints show up as a list where you can re-arrange and delete them until you are happy with your route. You can then download it by simply pressing the download button.
 
-In the project directory, you can run:
+## Prerequisite
 
-### `npm start`
+- [NPM](https://npmjs.com/)
+- [Docker](https://www.docker.com/)
+- Allow location sharing when prompted for effective performance of the app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live Website
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Click me](https://cross-country-route-builder.netlify.app/) to access demo website of this application.
 
-### `npm test`
+## Building and running
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you have docker engine running, just run the command below to get started.
 
-### `npm run build`
+```
+docker-compose up
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Oherwise, run via NPM
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Run `npm install` command in your terminal to install all the required dependencies
+- Run `npm start` to run the application locally on `http://localhost:3000`
+- Run `npm test` to run all the available unit tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Browser support
 
-### `npm run eject`
+Tested in a few recent browsers:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Firefox 81
+- Safari 14
+- Chrome 86
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+No effort has been made to ensure any backwards-compatibility with older versions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Libraries and tools used
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [create-react-app][] for initial setup.
+- Using [Leaflet][] library for the map.
+- Generated GPX file validated with [togpx][]. Converts GeoJSON to GPX.
+- Using [Emotion][] library for unified theming in-case of scaling from a visual perspective.
 
-## Learn More
+## Limitations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Hard-coded my personal Mapbox access token.
+  Would ahave ahnadled with environemnt variables for security purpose.
+- The Map component assumes it's only ever instantiated once and never removed from DOM.
+  e.g. it uses a hard-coded `id` attribute.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What did I learn
 
-### Code Splitting
+- Pretty much my first time using he Leaflet library for route building.
+  Had to do some learning there.
+  - Was looking at building the core components as functional components.
+    But realized that a class based approach will help prsent the solution in a scalable way at least from my own view.
+- I had not used the browser Drag'n'Drop API before.
+  It seemed to work pretty well in Firefox,
+  but then I discovered it not quite working when testing in other browsers.
+  Turned out I had used the deprecated dragexit event.
+  Additionally I had problems with excessive dragleave events being fired,
+  which I fixed with applying `pointer-events: none` to child elements.
+- Overall, it was a very intersting exercise, givig me more insights towards innovating around map based products.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Credits
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[create-react-app]: https://create-react-app.dev/
+[emotion]: https://emotion.sh/docs/introduction/
+[togpx]: https://github.com/tyrasd/togpx#readme
+[leaflet]: https://leafletjs.com/
