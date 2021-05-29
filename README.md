@@ -12,7 +12,7 @@ You can plan your favorite route across fields and hills by just placing markers
 
 ## Live Website
 
-- [Click me](https://cross-country-route-builder.netlify.app/) to access demo website of this application.
+- [Click me](https://komoot-route-builder.netlify.app/) to access demo website of this application.
 
 ## Building and running
 
