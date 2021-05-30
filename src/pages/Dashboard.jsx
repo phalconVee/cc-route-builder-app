@@ -66,7 +66,10 @@ class Dashboard extends Component {
   /**
    * When the list is re-arranged, this function updates the markers
    * and adds updated markers and polylines to the route layer
+   *
+   * @param {*} rearrangedMarkers
    */
+
   handleSort = (rearrangedMarkers) => {
     const { route, markers } = this.state;
 
@@ -102,10 +105,12 @@ class Dashboard extends Component {
   };
 
   /**
-   * When a marker (waypoint) is deleted from the list, this function
-   * deletes it from the state and the route layer.
-   * It then updates the markers and polylines with the new ones
+   * this function deletes it from the state and the route layer,
+   * when a marker (waypoint) is deleted from the list.
+   * it then updates the markers and polylines with the new ones
    * and adds it back to the route layer.
+   *
+   * @param {*} id
    */
   handleDelete = (id) => {
     const { markers, route } = this.state;
@@ -151,7 +156,6 @@ class Dashboard extends Component {
     const routeGPX = togpx(routeGeoJSON);
     const filename = "komoot-cross-country-route.gpx";
 
-    // Manipulate DOM to create downloadable link
     const downloadLink = document.createElement("a");
     downloadLink.setAttribute(
       "href",
@@ -230,8 +234,11 @@ class Dashboard extends Component {
     });
   };
 
-  // Allows to remove multiple layers from the route layer
-  // based on the provided type
+  /**
+   * Allows to remove multiple layers from the route layer
+   * based on the provided type
+   * @param {*} type
+   */
   removeLayers = (type) => {
     const { route } = this.state;
 

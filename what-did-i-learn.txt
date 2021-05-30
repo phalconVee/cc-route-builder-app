@@ -1,0 +1,16 @@
+What Did I Learn
+
+- Pretty much my first time using he Leaflet library for route building.
+  Had to do some learning there.
+
+- Was looking at building the core components as functional components.
+    But realized that a class based approach will help prsent the solution in a scalable way at least from my own view.
+
+- I had not used the browser Drag'n'Drop API before.
+  It seemed to work pretty well in Firefox,
+  but then I discovered it not quite working when testing in other browsers.
+  Turned out I had used the deprecated dragexit event.
+  Additionally I had problems with excessive dragleave events being fired,
+  which I fixed with applying `pointer-events: none` to child elements.
+  
+- Overall, it was a very intersting exercise, givig me more insights towards innovating around map based products.

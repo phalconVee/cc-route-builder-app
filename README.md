@@ -10,7 +10,7 @@ You can plan your favorite route across fields and hills by just placing markers
 - [Docker](https://www.docker.com/)
 - Allow location sharing when prompted for effective performance of the app.
 
-## Live Website
+## Demo Website
 
 - [Click me](https://komoot-route-builder.netlify.app/) to access demo website of this application.
 
@@ -65,10 +65,3 @@ No effort has been made to ensure any backwards-compatibility with older version
   Additionally I had problems with excessive dragleave events being fired,
   which I fixed with applying `pointer-events: none` to child elements.
 - Overall, it was a very intersting exercise, givig me more insights towards innovating around map based products.
-
-## Credits
-
-[create-react-app]: https://create-react-app.dev/
-[emotion]: https://emotion.sh/docs/introduction/
-[togpx]: https://github.com/tyrasd/togpx#readme
-[leaflet]: https://leafletjs.com/
